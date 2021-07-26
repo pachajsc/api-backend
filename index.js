@@ -74,7 +74,7 @@ app.post( '/api/items', ( request, response ) =>
         email: item.email,
         content: item.content,
         background: item.background,
-        important: item.important || false,
+        active: item.active || false,
         date: new Date().toISOString()
     }
     items = [ ...items, newItem]
