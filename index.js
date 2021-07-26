@@ -11,6 +11,7 @@ let items = [
         "id": 1,
         "content": "aca content 2",
         "date": "2019-05-",
+        "background": "http",
         "important":true
     },
     {
@@ -76,6 +77,8 @@ app.post( '/api/items', ( request, response ) =>
     items = [ ...items, newItem]
     response.json( newItem)
 } )
+
+
 
 
 app.delete( '/api/items/:id', ( request, response ) =>
