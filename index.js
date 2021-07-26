@@ -41,19 +41,19 @@ app.get( '/api/items', ( request, response ) =>
 {
     response.json(items)
 } )
-app.get( '/api/items/:id', ( request, response ) =>
-{
-    const id = Number(request.params.id)
-    const item = items.find( item => item.id === id )
-    if ( item )
-    {
-        response.json( item )
-    } else
-    {
-        response.status(404).end()
-    }
+// app.get( '/api/items/:id', ( request, response ) =>
+// {
+//     const id = Number(request.params.id)
+//     const item = items.find( item => item.id === id )
+//     if ( item )
+//     {
+//         response.json( item )
+//     } else
+//     {
+//         response.status(404).end()
+//     }
     
-} )
+// } )
 
 app.post( '/api/items', ( request, response ) =>
 {
@@ -69,6 +69,7 @@ app.post( '/api/items', ( request, response ) =>
     const newItem = {
         id: maxId + 1,
         content: item.content,
+        background: item.background,
         important: item.important || false,
         date: new Date().toISOString()
     }
