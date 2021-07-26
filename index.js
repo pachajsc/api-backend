@@ -70,6 +70,8 @@ app.post( '/api/items', ( request, response ) =>
     const newItem = {
         id: maxId + 1,
         qr: item.qr,
+        name: item.name,
+        email: item.email,
         content: item.content,
         background: item.background,
         important: item.important || false,
