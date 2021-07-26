@@ -12,19 +12,19 @@ let items = [
         "content": "aca content 2",
         "date": "2019-05-",
         "background": "http",
-        "important":true
+        "active": true
     },
     {
         "id": 2,
         "content": "aca content",
         "date": "2019-05-",
-        "important": true
+        "active": true
     },
     {
         "id": 3,
         "content": "aca content",
         "date": "2019-05-",
-        "important": true
+        "active": true
     }
 ]
 
