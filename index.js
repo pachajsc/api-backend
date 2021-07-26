@@ -69,6 +69,7 @@ app.post( '/api/items', ( request, response ) =>
     const maxId = Math.max( ...ids )
     const newItem = {
         id: maxId + 1,
+        qr: item.qr,
         content: item.content,
         background: item.background,
         important: item.important || false,
