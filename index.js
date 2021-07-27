@@ -38,7 +38,7 @@ app.get( '/', ( request, response ) =>
 {
     response.send('<h1>Hello world</h1>')
 } )
-app.get( '/api/items', ( request, response ) =>
+app.get( '/items', ( request, response ) =>
 {
     response.json(items)
 } )
@@ -56,7 +56,7 @@ app.get( '/api/items', ( request, response ) =>
     
 // } )
 
-app.post( '/api/items', ( request, response ) =>
+app.post( '/items', ( request, response ) =>
 {
     const item = request.body
     if ( !item.content )
@@ -84,7 +84,7 @@ app.post( '/api/items', ( request, response ) =>
 
 
 
-app.delete( '/api/items/:id', ( request, response ) =>
+app.delete( '/items/:id', ( request, response ) =>
 {
     const id = Number( request.params.id )
     items = items.filter( item => item.id != id )
