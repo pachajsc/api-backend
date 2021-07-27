@@ -1,6 +1,6 @@
 const express = require( 'express' )
 const cors = require('express')
-
+const { createProxyMiddleware } = require( 'http-proxy-middleware' );
 const app = express()
 
 app.use(cors())
@@ -94,7 +94,7 @@ app.delete( '/items/:id', ( request, response ) =>
 
 } )
 
-
+app.use( createProxyMiddleware( { target: 'https://www.qurvi.com.ar', changeOrigin: true } ) );
 const PORT = process.env.PORT || 3002
 app.listen( PORT, () =>{
     console.log( 'server runing in port ' + PORT )
