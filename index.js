@@ -80,7 +80,7 @@ app.post( '/items', ( request, response ) =>
         date: new Date().toISOString()
     }
     items = [ ...items, newItem]
-    response.json(newItem)
+    response.json(items)
 } )
 
 
