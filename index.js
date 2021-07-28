@@ -3,7 +3,8 @@ const cors = require('express')
 const { createProxyMiddleware } = require( 'http-proxy-middleware' );
 const app = express()
 
-app.use(cors())
+//app.use(cors())
+app.use(cors({ origin: true }));
 app.use( express.json() )
 //app.use( logger)
 let items = [
