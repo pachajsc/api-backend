@@ -3,7 +3,8 @@ const cors = require('express')
 const { createProxyMiddleware } = require( 'http-proxy-middleware' );
 const app = express()
 
-app.use(cors())
+//app.use(cors())
+app.use(cors({ origin: true }));
 app.use( express.json() )
 //app.use( logger)
 let items = [
@@ -58,6 +59,7 @@ app.get( '/items', ( request, response ) =>
 
 app.post( '/items', ( request, response ) =>
 {
+   
     const item = request.body
     if ( !item.content )
     {
@@ -78,7 +80,7 @@ app.post( '/items', ( request, response ) =>
         date: new Date().toISOString()
     }
     items = [ ...items, newItem]
-    response.json( newItem)
+    response.json(items)
 } )
 
 
