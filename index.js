@@ -35,6 +35,14 @@ let items = [
 //     response.end(JSON.stringify(items))
 // } )
 
+app.use((req, res, next)=>{
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Accept, Authorization, Origin, X-Requested-Width');
+    next();
+})
+
+
 app.get( '/', ( request, response ) =>
 {
     response.send('<h1>Hello world</h1>')
