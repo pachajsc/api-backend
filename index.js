@@ -1,10 +1,11 @@
 const express = require( 'express' )
-const cors = require('express')
+const cors = require('cors')
 const { createProxyMiddleware } = require( 'http-proxy-middleware' );
 const app = express()
 
 //app.use(cors())
-app.use(cors({ origin: true }));
+const WhiteList =['https://qurvi.com.ar'];
+app.use(cors({origin:WhiteList}));
 app.use( express.json() )
 //app.use( logger)
 let items = [
