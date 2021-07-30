@@ -1,6 +1,9 @@
 //const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
+const cors = require("express");
+const WhiteList = "https://qurvi.com.ar/";
+app.use(cors({ origin: WhiteList }));
 let items = [
   {
     id: 1,
@@ -52,6 +55,12 @@ app.post("/items", (request, response) => {
   };
   items = [...items, newItem];
   response.json(newItem);
+});
+
+app.delete("/items/:id", (request, response) => {
+  const id = Number(request.params.id);
+  items = items.filter((item) => item.id != id);
+  response.status(204).end();
 });
 
 const PORT = process.env.PORT || 3003;
