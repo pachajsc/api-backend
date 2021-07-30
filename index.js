@@ -1,13 +1,7 @@
 //const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
-let items = [
-  {
-    id: 1,
-    qr:"qr-ejemplo"
-    content: "Mi primer Item",
-  }
-];
+
 //app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
