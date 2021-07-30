@@ -1,7 +1,16 @@
 //const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
-
+let items = [
+  {
+    id: 1,
+    qr:"primer-item",
+    content: "primer item",
+    date: "2019-05-",
+    background: "http",
+    active: true,
+  },
+];
 //app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
