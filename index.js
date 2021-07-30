@@ -4,11 +4,13 @@ const app = express();
 let items = [
   {
     id: 1,
-    qr:"primer-item",
-    content: "primer item",
-    date: "2019-05-",
+    qr: "primer-item",
+    content: "aca content 2",
+    name: "jose",
+    email: "test@test",
     background: "http",
     active: true,
+    date: "30-07-2021",
   },
 ];
 //app.use(bodyParser.urlencoded({ extended: false }));
@@ -41,12 +43,12 @@ app.post("/items", (request, response) => {
   const newItem = {
     id: maxId + 1,
     qr: item.qr,
+    content: item.content,
     name: item.name,
     email: item.email,
-    content: item.content,
     background: item.background,
-    // active: item.active || false,
-    //date: new Date().toISOString(),
+    active: item.active || false,
+    date: new Date().toISOString(),
   };
   items = [...items, newItem];
   response.json(newItem);
@@ -56,4 +58,3 @@ const PORT = process.env.PORT || 3003;
 app.listen(PORT, () => {
   console.log("server runing in port " + PORT);
 });
-
