@@ -33,32 +33,18 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/items", (request, response) => {
-  response.json(items);
+app.get("/items", (req, res) => {
+  res.json(items);
 });
 
-app.post("/items", (request, response) => {
-  const item = request.body;
-  if (!item.content) {
-    return response.status(400).json({
-      error: "content requerido",
-    });
-  }
-  const ids = items.map((item) => item.id);
-  const maxId = Math.max(...ids);
-
+app.post("/items", (req, res) => {
+  const item = req.body;
   const newItem = {
-    id: maxId + 1,
     qr: item.qr,
-    name: item.name,
-    email: item.email,
     content: item.content,
-    background: item.background,
-    // active: item.active || false,
-    // date: new Date().toISOString(),
   };
   items = [...items, newItem];
-  response.json(newItem);
+  res.json(newItem);
 });
 
 const PORT = process.env.PORT || 3003;
