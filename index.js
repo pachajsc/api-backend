@@ -43,7 +43,7 @@ app.post("/items", (request, response) => {
     content: item.content,
     background: item.background,
     // active: item.active || false,
-    date: new Date().toISOString(),
+    //date: new Date().toISOString(),
   };
   items = [...items, newItem];
   response.json(newItem);
