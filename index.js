@@ -4,21 +4,9 @@ const app = express();
 let items = [
   {
     id: 1,
-    content: "aca content 2",
-    date: "2019-05-",
-    background: "http",
-    active: true,
-  },
-  {
-    id: 2,
-    content: "aca content",
-    date: "2019-05-",
-    active: true,
-  },
-  {
-    qr: "hola-fest-party",
-    content: "buenas, como va!!!",
-  },
+    qr:"qr-ejemplo"
+    content: "Mi primer Item",
+  }
 ];
 //app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
@@ -55,7 +43,7 @@ app.post("/items", (request, response) => {
     content: item.content,
     background: item.background,
     // active: item.active || false,
-    // date: new Date().toISOString(),
+    date: new Date().toISOString(),
   };
   items = [...items, newItem];
   response.json(newItem);
