@@ -1,9 +1,9 @@
 //const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
-const cors = require("express");
-const WhiteList = "https://qurvi.com.ar/";
-app.use(cors({ origin: WhiteList }));
+//const cors = require("express");
+//const WhiteList = "https://qurvi.com.ar/";
+//app.use(cors({ origin: WhiteList }));
 let items = [
   {
     id: 1,
