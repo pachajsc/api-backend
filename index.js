@@ -63,7 +63,15 @@ app.delete("/items/:id", (request, response) => {
   response.status(204).end();
 });
 
-const PORT = process.env.PORT || 3003;
-app.listen(PORT, () => {
-  console.log("server runing in port " + PORT);
-});
+//const PORT = process.env.PORT || 3003;
+//app.listen(PORT, () => {
+  //console.log("server runing in port " + PORT);
+//});
+
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+const envPath = process.env.NODE_ENV !== 'production' ? `.env.${process.env.NODE_ENV}` : '.env';
+const config = require('dotenv').config({path: envPath});
+
+port = process.env.PORT || 3003;
+app.listen(port);
