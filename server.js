@@ -4,13 +4,20 @@ const app = express();
 let items = [
   {
     id: 1,
-    qr: "primer-item",
     content: "aca content 2",
-    name: "jose",
-    email: "test@test",
+    date: "2019-05-",
     background: "http",
     active: true,
-    date: "30-07-2021",
+  },
+  {
+    id: 2,
+    content: "aca content",
+    date: "2019-05-",
+    active: true,
+  },
+  {
+    qr: "hola-fest-party",
+    content: "buenas, como va!!!",
   },
 ];
 //app.use(bodyParser.urlencoded({ extended: false }));
@@ -26,35 +33,21 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/items", (request, response) => {
-  response.json(items);
+app.get("/items", (req, res) => {
+  res.json(items);
 });
 
-app.post("/items", (request, response) => {
-  const item = request.body;
-  if (!item.content) {
-    return response.status(400).json({
-      error: "content requerido",
-    });
-  }
-  const ids = items.map((item) => item.id);
-  const maxId = Math.max(...ids);
-
+app.post("/items", (req, res) => {
+  const item = req.body;
   const newItem = {
-    id: maxId + 1,
     qr: item.qr,
     content: item.content,
-    name: item.name,
-    email: item.email,
-    background: item.background,
-    active: item.active || false,
-    date: new Date().toISOString(),
   };
   items = [...items, newItem];
-  response.json(newItem);
+  res.json(newItem);
 });
 
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
   console.log("server runing in port " + PORT);
 });
