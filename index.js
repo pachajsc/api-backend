@@ -1,6 +1,12 @@
 //const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
+<<<<<<< HEAD
+=======
+//const cors = require("express");
+//const WhiteList = "https://qurvi.com.ar/";
+//app.use(cors({ origin: WhiteList }));
+>>>>>>> f343999d2a512932e775766ec22efdd1a1514bcb
 let items = [
   {
     id: 1,
@@ -54,7 +60,21 @@ app.post("/items", (request, response) => {
   response.json(newItem);
 });
 
+app.delete("/items/:id", (request, response) => {
+  const id = Number(request.params.id);
+  items = items.filter((item) => item.id != id);
+  response.status(204).end();
+});
+
 const PORT = process.env.PORT || 3003;
 app.listen(PORT, () => {
   console.log("server runing in port " + PORT);
 });
+
+
+//process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+//const envPath = process.env.NODE_ENV !== 'production' ? `.env.${process.env.NODE_ENV}` : 'https://qr-app-2021.herokuapp.com';
+//const config = require('dotenv').config({path: envPath});
+
+//port = process.env.PORT || 3003;
+//app.listen(port);
